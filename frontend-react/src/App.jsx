@@ -1,20 +1,27 @@
-import React from 'react'
-import './assets/css/style.css'
-import Header from './components/Header'
-import Home from './components/Home'
-import Footer from './components/Footer'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import "./assets/css/style.css";
+import Home from "./components/Home";
+import Register from "./components/Register";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Login from "./components/Login";
 
 const App = () => {
   return (
-    <div className="bg-gray-800 min-h-screen font-sans">
-      <Header />
-      <main className="container mx-auto px-6 py-12">
-        <Home/>
-      </main>
-      <Footer/>
-    </div>
+    <>
+      <BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login/>}/>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    </>
   );
 };
 
-
-export default App
+export default App;
